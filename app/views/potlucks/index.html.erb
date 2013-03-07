@@ -1,0 +1,20 @@
+<h1>Potlucks</h1>
+
+<% if @potlucks.count > 0 %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  <% @potlucks.each do |potluck| %>
+    <tr>
+      <td><%= potluck.name %></td>
+      <td><%= potluck.date %></td>
+      <td><%= link_to 'delete', potluck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+
+<%= link_to 'Add Potluck', new_potluck_path %>
